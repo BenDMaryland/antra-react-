@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import React from 'react';
 
 const render = (reactElement, domElement) => {
 
@@ -17,6 +17,7 @@ const render = (reactElement, domElement) => {
 
             /// Mounting
             /// constructor
+
             const curInstance = new type(props);
 
             console.log("curInstance", curInstance)
@@ -37,20 +38,15 @@ const render = (reactElement, domElement) => {
 
         // Assignment if it is function component
         if (typeof type === "function") {
-            console.table("Function__", "Type", reactElement, props,  "chidlren",type(Children));
-            console.table( "chidlren", type(Children));
-            // props == children 
-            /// tpye == button 
-            /// this is horrible hacky and unscalable :( 
-            let obj = {
-                type: type.name,
-                props: reactElement.props
-            }
+            console.table("Function__", "Type", type(props));
+            console.log(props)
+            console.log(type)
+
             render(type(props), domElement);
             return;
         }
         /// else 
-   //     console.log("the type is ", reactElement, type, domElement)
+        console.log("the type is ", reactElement, type, domElement)
         curDom = document.createElement(type);
 
         Object.entries(props).forEach(
@@ -92,3 +88,4 @@ const MyReactDOM = {
 
 
 export default MyReactDOM
+
