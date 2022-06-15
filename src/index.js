@@ -11,7 +11,14 @@ const reactE = <section>
 </section>;
 
 const Button = (props) => {
-  <button>{props.children}</button>
+
+  return (
+    <div>
+ <p>sss Hey look here </p> 
+    <button>{props.children}</button>
+    </div>
+  )
+
 }
 
 class Counter extends React.Component {
@@ -26,8 +33,8 @@ class Counter extends React.Component {
 
   static getDerivedStateFromProps(props, state) {
     // 
-  //  console.log('Props', props)
-   // console.log('state', state)
+    //  console.log('Props', props)
+    // console.log('state', state)
     if (props.title) {
       return { ...state, title: props.title };
     }
@@ -35,14 +42,14 @@ class Counter extends React.Component {
   }
   render() {
     //console.log("section", document.querySelector('section'))
-  //  console.log("STATE", this.state)
+    //  console.log("STATE", this.state)
     return <section>
       <header>{this.state.title}:{this.state.counter}</header>
       <Button>+</Button><Button>-</Button>
     </section>;
   }
   componentDidMount() {
-  //  console.log("section", document.querySelector('section'))
+    //  console.log("section", document.querySelector('section'))
   }
 }
 
